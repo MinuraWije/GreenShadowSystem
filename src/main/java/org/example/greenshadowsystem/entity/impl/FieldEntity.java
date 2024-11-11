@@ -1,20 +1,19 @@
 package org.example.greenshadowsystem.entity.impl;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.greenshadowsystem.entity.SuperEntity;
 import org.springframework.data.geo.Point;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "equipment")
+@Table(name = "field")
 public class FieldEntity implements SuperEntity {
     @Id
     private String fieldCode;
@@ -25,4 +24,6 @@ public class FieldEntity implements SuperEntity {
     private String img1;
     @Column(columnDefinition = "LONGTEXT")
     private String img2;
+    @OneToMany(mappedBy = "field")
+    private List<CropEntity> crops;
 }
