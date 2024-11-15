@@ -1,15 +1,13 @@
 package org.example.greenshadowsystem.entity.impl;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.greenshadowsystem.entity.SuperEntity;
 
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,4 +21,10 @@ public class LogEntity implements SuperEntity {
     private Date logDate;
     @Column(columnDefinition = "LONGTEXT")
     private String observedImg;
+    @OneToMany(mappedBy = "log")
+    private List<CropEntity> cropLogs;
+    @OneToMany(mappedBy = "log")
+    private List<FieldEntity> fieldLogs;
+    @OneToMany(mappedBy = "log")
+    private List<StaffEntity> staffLogs;
 }
