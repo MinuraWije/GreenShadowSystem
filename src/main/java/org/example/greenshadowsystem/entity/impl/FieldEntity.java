@@ -25,6 +25,8 @@ public class FieldEntity implements SuperEntity {
     @Column(columnDefinition = "LONGTEXT")
     private String img2;
     @OneToMany(mappedBy = "field")
+    private List<CropEntity> crops;
+    @OneToMany(mappedBy = "field")
     private List<FieldedStaff> fieldedStaffs;
     @OneToMany(mappedBy = "field")
     private List<FieldEquipment> fieldEquipments;
