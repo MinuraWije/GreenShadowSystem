@@ -17,6 +17,8 @@ public class FieldedStaff implements SuperEntity {
     @EmbeddedId
     private FieldedStaffID fieldedStaffID;
     private Date date;
+    @Enumerated(EnumType.STRING)
+    private Availability status;
     @ManyToOne
     @MapsId("staffId")
     @JoinColumn(name = "staffId", referencedColumnName = "staffId")
