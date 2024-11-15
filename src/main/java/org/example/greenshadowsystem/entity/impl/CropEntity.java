@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.greenshadowsystem.entity.SuperEntity;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -23,4 +25,6 @@ public class CropEntity implements SuperEntity {
     @ManyToOne
     @JoinColumn(name = "fieldCode", nullable = false)
     private FieldEntity field;
+    @OneToMany(mappedBy = "crop")
+    private List<LogEntity> cropLogs;
 }
