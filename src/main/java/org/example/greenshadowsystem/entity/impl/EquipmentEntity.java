@@ -1,9 +1,6 @@
 package org.example.greenshadowsystem.entity.impl;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +18,8 @@ public class EquipmentEntity implements SuperEntity {
     private String equipmentId;
     private String name;
     private String type;
-    private Enum status;
+    @Enumerated(EnumType.STRING)
+    private Availability status;
     @OneToMany(mappedBy = "equipment")
     private List<FieldEquipment> fieldEquipments;
     @OneToMany(mappedBy = "equipment")
