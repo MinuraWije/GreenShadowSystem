@@ -1,8 +1,6 @@
 package org.example.greenshadowsystem.entity.impl;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,5 +17,6 @@ public class VehicleEntity implements SuperEntity {
     private String licensePlateNum;
     private String category;
     private Double fuelType;
-    private Enum status;
+    @Enumerated(EnumType.STRING)
+    private Availability status;
 }
