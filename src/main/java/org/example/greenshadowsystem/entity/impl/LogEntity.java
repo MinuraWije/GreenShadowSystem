@@ -22,9 +22,9 @@ public class LogEntity implements SuperEntity {
     @Column(columnDefinition = "LONGTEXT")
     private String observedImg;
     @OneToMany(mappedBy = "log")
-    private List<CropEntity> cropLogs;
+    private List<CropLog> cropLogs;
     @OneToMany(mappedBy = "log")
-    private List<FieldEntity> fieldLogs;
+    private List<FieldLog> fieldLogs;
     @OneToMany(mappedBy = "log")
-    private List<StaffEntity> staffLogs;
+    private List<StaffLog> staffLogs;
 }
