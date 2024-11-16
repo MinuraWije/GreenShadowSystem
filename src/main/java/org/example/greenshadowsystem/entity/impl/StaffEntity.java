@@ -1,12 +1,10 @@
 package org.example.greenshadowsystem.entity.impl;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.greenshadowsystem.entity.Role;
 import org.example.greenshadowsystem.entity.SuperEntity;
 import org.springframework.data.geo.Point;
 
@@ -22,7 +20,8 @@ public class StaffEntity implements SuperEntity {
     @Id
     private String staffId;
     private String name;
-    private Enum role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
     private String designation;
     private Point gender;
     private Date joinedDate;
