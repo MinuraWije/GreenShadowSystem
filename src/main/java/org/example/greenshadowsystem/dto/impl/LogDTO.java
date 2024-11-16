@@ -16,7 +16,7 @@ public class LogDTO implements LogStatus {
     private String logDetails;
     private Date logDate;
     private String observedImg;
-    private List<CropDTO> cropLogs;
-    private List<FieldDTO> fieldLogs;
-    private List<StaffDTO> staffLogs;
+    private List<CropLogDTO> cropLogs;
+    private List<FieldLogDTO> fieldLogs;
+    private List<StaffLogDTO> staffLogs;
 }
