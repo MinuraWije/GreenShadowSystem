@@ -8,9 +8,9 @@ public class RegexProcess {
         Pattern regexPattern = Pattern.compile(regexForStaffId);
         return regexPattern.matcher(staffId).matches();
     }
-    public static boolean userIdMatcher(String userId){
-        String regexForUserId = "^USER-[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$";
-        Pattern regexPattern = Pattern.compile(regexForUserId);
-        return regexPattern.matcher(userId).matches();
+    public static boolean vehicleIdMatcher(String vehicleId){
+        String regexForVehicleId = "^VEHICLE-[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$";
+        Pattern regexPattern = Pattern.compile(regexForVehicleId);
+        return regexPattern.matcher(vehicleId).matches();
     }
 }
