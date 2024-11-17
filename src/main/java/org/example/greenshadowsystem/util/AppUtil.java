@@ -8,8 +8,8 @@ public class AppUtil {
         return "Staff-"+UUID.randomUUID();
     }
 
-    public static String generateUserId(){
-        return "User-"+UUID.randomUUID();
+    public static String generateVehicleId(){
+        return "Vehicle-"+UUID.randomUUID();
     }
     public static String profilePicToBase64(byte [] profilePic){
         return Base64.getEncoder().encodeToString(profilePic);
