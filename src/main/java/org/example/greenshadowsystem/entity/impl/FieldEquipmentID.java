@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class FieldEquipmentID {
     private String fieldCode;
-    private String equipmentID;
+    private String equipmentId;
 }
