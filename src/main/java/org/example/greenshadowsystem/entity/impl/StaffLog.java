@@ -24,5 +24,5 @@ public class StaffLog implements SuperEntity {
     @ManyToOne
     @MapsId("logCode")
     @JoinColumn(name = "logCode", referencedColumnName = "logCode")
-    private LogEntity logCode;
+    private LogEntity log;
 }
