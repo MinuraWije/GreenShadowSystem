@@ -1,8 +1,10 @@
 package org.example.greenshadowsystem.util;
 
 
+import org.example.greenshadowsystem.dto.impl.EquipmentDTO;
 import org.example.greenshadowsystem.dto.impl.StaffDTO;
 import org.example.greenshadowsystem.dto.impl.VehicleDTO;
+import org.example.greenshadowsystem.entity.impl.EquipmentEntity;
 import org.example.greenshadowsystem.entity.impl.StaffEntity;
 import org.example.greenshadowsystem.entity.impl.VehicleEntity;
 import org.modelmapper.ModelMapper;
@@ -29,7 +31,7 @@ public class Mapping {
     public List<StaffDTO> asStaffDTOList(List<StaffEntity> staffEntities){
         return modelMapper.map(staffEntities, new TypeToken<List<StaffDTO>>() {}.getType());
     }
-    //for note mapping
+    //for vehicle mapping
     public VehicleDTO toVehicleDTO(VehicleEntity vehicleEntity){
         return modelMapper.map(vehicleEntity, VehicleDTO.class);
     }
@@ -38,5 +40,15 @@ public class Mapping {
     }
     public List<VehicleDTO> asVehicleDTOList(List<VehicleEntity> vehicleEntityList){
         return modelMapper.map(vehicleEntityList, new TypeToken<List<VehicleDTO>>() {}.getType());
+    }
+    //for equipment mapping
+    public EquipmentDTO toEquipmentDTO(EquipmentEntity equipmentEntity){
+        return modelMapper.map(equipmentEntity, EquipmentDTO.class);
+    }
+    public EquipmentEntity toEquipmentEntity(EquipmentDTO equipmentDTO){
+        return modelMapper.map(equipmentDTO, EquipmentEntity.class);
+    }
+    public List<EquipmentDTO> asEquipmentDTOList(List<EquipmentEntity> equipmentEntityList){
+        return modelMapper.map(equipmentEntityList, new TypeToken<List<EquipmentDTO>>() {}.getType());
     }
 }

@@ -13,4 +13,9 @@ public class RegexProcess {
         Pattern regexPattern = Pattern.compile(regexForVehicleId);
         return regexPattern.matcher(vehicleId).matches();
     }
+    public static boolean equipmentIdMatcher(String equipmentId){
+        String regexForEquipmentId = "^EQUIPMENT-[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$";
+        Pattern regexPattern = Pattern.compile(regexForEquipmentId);
+        return regexPattern.matcher(equipmentId).matches();
+    }
 }
