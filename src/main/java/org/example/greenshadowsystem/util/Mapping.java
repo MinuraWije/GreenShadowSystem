@@ -2,7 +2,9 @@ package org.example.greenshadowsystem.util;
 
 
 import org.example.greenshadowsystem.dto.impl.StaffDTO;
+import org.example.greenshadowsystem.dto.impl.VehicleDTO;
 import org.example.greenshadowsystem.entity.impl.StaffEntity;
+import org.example.greenshadowsystem.entity.impl.VehicleEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +29,14 @@ public class Mapping {
     public List<StaffDTO> asStaffDTOList(List<StaffEntity> staffEntities){
         return modelMapper.map(staffEntities, new TypeToken<List<StaffDTO>>() {}.getType());
     }
-    /*//for note mapping
-    public NoteDTO toNoteDTO(NoteEntity noteEntity){
-        return modelMapper.map(noteEntity, NoteDTO.class);
+    //for note mapping
+    public VehicleDTO toVehicleDTO(VehicleEntity vehicleEntity){
+        return modelMapper.map(vehicleEntity, VehicleDTO.class);
     }
-    public NoteEntity toNoteEntity(NoteDTO noteDTO){
-        return modelMapper.map(noteDTO, NoteEntity.class);
+    public VehicleEntity toVehicleEntity(VehicleDTO vehicleDTO){
+        return modelMapper.map(vehicleDTO, VehicleEntity.class);
     }
-    public List<NoteDTO> asNoteDTOList(List<NoteEntity> noteEntityList){
-        return modelMapper.map(noteEntityList, new TypeToken<List<NoteDTO>>() {}.getType());
-    }*/
-
+    public List<VehicleDTO> asVehicleDTOList(List<VehicleEntity> vehicleEntityList){
+        return modelMapper.map(vehicleEntityList, new TypeToken<List<VehicleDTO>>() {}.getType());
+    }
 }
