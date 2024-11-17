@@ -24,11 +24,7 @@ public class VehicleServiceImpl implements VehicleService {
     private VehicleDao vehicleDao;
     @Autowired
     private Mapping vehicleMapping;
-    /*private static List<NoteDTO> noteDTOList = new ArrayList<>();
 
-    NoteServiceImpl(){
-        noteDTOList.add(new NoteDTO())
-    }*/
     @Override
     public void saveVehicle(VehicleDTO vehicleDTO) {
         vehicleDTO.setVehicleCode(AppUtil.generateVehicleId());
@@ -46,8 +42,8 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public VehicleStatus getVehicle(String vehicleId) {
         if(vehicleDao.existsById(vehicleId)){
-            var selectedNote = vehicleDao.getReferenceById(vehicleId);
-            return vehicleMapping.toVehicleDTO(selectedNote);
+            var selectedVehicle = vehicleDao.getReferenceById(vehicleId);
+            return vehicleMapping.toVehicleDTO(selectedVehicle);
         }
         return new SelectedCustomErrorStatus(2, "Selected Vehicle not found.");
     }
