@@ -11,6 +11,7 @@ public class AppUtil {
         return "Vehicle-"+UUID.randomUUID();
     }
     public static String generateEquipmentId(){return "Equipment-"+UUID.randomUUID();}
+    public static String generateFieldId(){return "Field-"+UUID.randomUUID();}
 
     public static String profilePicToBase64(byte [] profilePic){
         return Base64.getEncoder().encodeToString(profilePic);
