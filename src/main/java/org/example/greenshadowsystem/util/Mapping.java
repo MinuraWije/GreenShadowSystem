@@ -2,9 +2,11 @@ package org.example.greenshadowsystem.util;
 
 
 import org.example.greenshadowsystem.dto.impl.EquipmentDTO;
+import org.example.greenshadowsystem.dto.impl.FieldDTO;
 import org.example.greenshadowsystem.dto.impl.StaffDTO;
 import org.example.greenshadowsystem.dto.impl.VehicleDTO;
 import org.example.greenshadowsystem.entity.impl.EquipmentEntity;
+import org.example.greenshadowsystem.entity.impl.FieldEntity;
 import org.example.greenshadowsystem.entity.impl.StaffEntity;
 import org.example.greenshadowsystem.entity.impl.VehicleEntity;
 import org.modelmapper.ModelMapper;
@@ -50,5 +52,15 @@ public class Mapping {
     }
     public List<EquipmentDTO> asEquipmentDTOList(List<EquipmentEntity> equipmentEntityList){
         return modelMapper.map(equipmentEntityList, new TypeToken<List<EquipmentDTO>>() {}.getType());
+    }
+    //for field mapping
+    public FieldDTO toFieldDTO(FieldEntity fieldEntity){
+        return modelMapper.map(fieldEntity, FieldDTO.class);
+    }
+    public FieldEntity toFieldEntity(FieldDTO fieldDTO){
+        return modelMapper.map(fieldDTO, FieldEntity.class);
+    }
+    public List<FieldDTO> asFieldDTOList(List<FieldEntity> fieldEntityList){
+        return modelMapper.map(fieldEntityList, new TypeToken<List<FieldDTO>>() {}.getType());
     }
 }
