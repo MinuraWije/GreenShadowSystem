@@ -3,7 +3,6 @@ package org.example.greenshadowsystem.controller;
 import org.example.greenshadowsystem.customStatusCodes.SelectedCustomErrorStatus;
 import org.example.greenshadowsystem.dto.EquipmentStatus;
 import org.example.greenshadowsystem.dto.impl.EquipmentDTO;
-import org.example.greenshadowsystem.dto.impl.StaffDTO;
 import org.example.greenshadowsystem.exception.DataPersistException;
 import org.example.greenshadowsystem.exception.EquipmentNotFoundException;
 import org.example.greenshadowsystem.service.EquipmentService;
