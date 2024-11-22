@@ -1,14 +1,8 @@
 package org.example.greenshadowsystem.util;
 
 
-import org.example.greenshadowsystem.dto.impl.EquipmentDTO;
-import org.example.greenshadowsystem.dto.impl.FieldDTO;
-import org.example.greenshadowsystem.dto.impl.StaffDTO;
-import org.example.greenshadowsystem.dto.impl.VehicleDTO;
-import org.example.greenshadowsystem.entity.impl.EquipmentEntity;
-import org.example.greenshadowsystem.entity.impl.FieldEntity;
-import org.example.greenshadowsystem.entity.impl.StaffEntity;
-import org.example.greenshadowsystem.entity.impl.VehicleEntity;
+import org.example.greenshadowsystem.dto.impl.*;
+import org.example.greenshadowsystem.entity.impl.*;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,5 +56,15 @@ public class Mapping {
     }
     public List<FieldDTO> asFieldDTOList(List<FieldEntity> fieldEntityList){
         return modelMapper.map(fieldEntityList, new TypeToken<List<FieldDTO>>() {}.getType());
+    }
+    //for log mapping
+    public LogDTO toLogDTO(LogEntity logEntity){
+        return modelMapper.map(logEntity, LogDTO.class);
+    }
+    public LogEntity toLogEntity(LogDTO logDTO){
+        return modelMapper.map(logDTO, LogEntity.class);
+    }
+    public List<LogDTO> asLogDTOList(List<LogEntity> logEntityList){
+        return modelMapper.map(logEntityList, new TypeToken<List<LogDTO>>() {}.getType());
     }
 }
