@@ -3,15 +3,12 @@ package org.example.greenshadowsystem.customStatusCodes;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.greenshadowsystem.dto.EquipmentStatus;
-import org.example.greenshadowsystem.dto.FieldStatus;
-import org.example.greenshadowsystem.dto.StaffStatus;
-import org.example.greenshadowsystem.dto.VehicleStatus;
+import org.example.greenshadowsystem.dto.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class SelectedCustomErrorStatus implements VehicleStatus, StaffStatus, EquipmentStatus, FieldStatus {
+public class SelectedCustomErrorStatus implements VehicleStatus, StaffStatus, EquipmentStatus, FieldStatus, LogStatus {
     private int statusCode;
     private String statusMessage;
 }
