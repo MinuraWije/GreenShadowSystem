@@ -94,7 +94,7 @@ public class FieldController {
     }
 
     @PutMapping(value = "{fieldCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public void updateUser(FieldDTO fieldDTO,
+    public void updateField(FieldDTO fieldDTO,
                            @RequestPart("fieldName") String fieldName,
                            @RequestPart("location") Point location,
                            @RequestPart("size") Double size,
