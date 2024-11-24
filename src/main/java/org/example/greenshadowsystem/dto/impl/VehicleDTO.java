@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.greenshadowsystem.dto.VehicleStatus;
-import org.example.greenshadowsystem.entity.impl.Availability;
+import org.example.greenshadowsystem.entity.Availability;
 
 @AllArgsConstructor
 @NoArgsConstructor

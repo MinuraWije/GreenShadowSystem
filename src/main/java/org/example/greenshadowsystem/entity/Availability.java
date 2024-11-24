@@ -1,4 +1,4 @@
-package org.example.greenshadowsystem.entity.impl;
+package org.example.greenshadowsystem.entity;
 
 public enum Availability {
     AVAILABLE,

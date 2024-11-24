@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.greenshadowsystem.entity.Availability;
 import org.example.greenshadowsystem.entity.SuperEntity;
 
 import java.util.List;

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.greenshadowsystem.dto.StaffEquipmentStatus;
-import org.example.greenshadowsystem.entity.impl.Availability;
+import org.example.greenshadowsystem.entity.Availability;
 import org.example.greenshadowsystem.entity.impl.StaffEquipmentID;
 
 import java.util.Date;
