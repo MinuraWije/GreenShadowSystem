@@ -9,6 +9,7 @@ import org.example.greenshadowsystem.entity.Role;
 import org.example.greenshadowsystem.entity.SuperEntity;
 import org.springframework.data.geo.Point;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class StaffEntity implements SuperEntity {
     private String designation;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    private Date joinedDate;
+    private LocalDate joinedDate;
     private String email;
     private Date dob;
     private String address;

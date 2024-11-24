@@ -8,6 +8,7 @@ import org.example.greenshadowsystem.entity.Gender;
 import org.example.greenshadowsystem.entity.Role;
 import org.springframework.data.geo.Point;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class StaffDTO implements StaffStatus {
     private Role role;
     private String designation;
     private Gender gender;
-    private Date joinedDate;
+    private LocalDate joinedDate;
     private String email;
     private Date dob;
     private String address;
