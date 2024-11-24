@@ -13,7 +13,7 @@ public class AppUtil {
     public static String generateEquipmentId(){return "Equipment-"+UUID.randomUUID();}
     public static String generateFieldId(){return "Field-"+UUID.randomUUID();}
     public static String generateLogId(){return "Log-"+UUID.randomUUID();}
-
+    public static String generateCropId(){return "Crop-"+UUID.randomUUID();}
     public static String profilePicToBase64(byte [] profilePic){
         return Base64.getEncoder().encodeToString(profilePic);
     }
