@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.greenshadowsystem.entity.Gender;
 import org.example.greenshadowsystem.entity.Role;
 import org.example.greenshadowsystem.entity.SuperEntity;
 import org.springframework.data.geo.Point;
@@ -23,7 +24,8 @@ public class StaffEntity implements SuperEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
     private String designation;
-    private Point gender;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     private Date joinedDate;
     private String email;
     private Date dob;
