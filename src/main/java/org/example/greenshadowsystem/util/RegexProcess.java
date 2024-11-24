@@ -28,4 +28,9 @@ public class RegexProcess {
         Pattern regexPattern = Pattern.compile(regexForLogId);
         return regexPattern.matcher(logId).matches();
     }
+    public static boolean cropIdMatcher(String cropId){
+        String regexForCropId = "^CROP-[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$";
+        Pattern regexPattern = Pattern.compile(regexForCropId);
+        return regexPattern.matcher(cropId).matches();
+    }
 }
