@@ -8,7 +8,7 @@ import org.example.greenshadowsystem.dto.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class SelectedCustomErrorStatus implements VehicleStatus, StaffStatus, EquipmentStatus, FieldStatus, LogStatus {
+public class SelectedCustomErrorStatus implements VehicleStatus, StaffStatus, EquipmentStatus, FieldStatus, LogStatus, CropStatus {
     private int statusCode;
     private String statusMessage;
 }
