@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.greenshadowsystem.dto.StaffStatus;
+import org.example.greenshadowsystem.entity.Gender;
 import org.example.greenshadowsystem.entity.Role;
 import org.springframework.data.geo.Point;
 
@@ -18,7 +19,7 @@ public class StaffDTO implements StaffStatus {
     private String name;
     private Role role;
     private String designation;
-    private Point gender;
+    private Gender gender;
     private Date joinedDate;
     private String email;
     private Date dob;
