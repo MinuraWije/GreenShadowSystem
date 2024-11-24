@@ -67,4 +67,14 @@ public class Mapping {
     public List<LogDTO> asLogDTOList(List<LogEntity> logEntityList){
         return modelMapper.map(logEntityList, new TypeToken<List<LogDTO>>() {}.getType());
     }
+    //for crop mapping
+    public CropDTO toCropDTO(CropEntity cropEntity){
+        return modelMapper.map(cropEntity, CropDTO.class);
+    }
+    public CropEntity toCropEntity(CropDTO cropDTO){
+        return modelMapper.map(cropDTO, CropEntity.class);
+    }
+    public List<CropDTO> asCropDTOList(List<CropEntity> cropEntityList){
+        return modelMapper.map(cropEntityList, new TypeToken<List<CropDTO>>() {}.getType());
+    }
 }
