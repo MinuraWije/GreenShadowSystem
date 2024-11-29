@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.example.greenshadowsystem.entity.Availability;
 import org.example.greenshadowsystem.entity.SuperEntity;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -20,4 +22,6 @@ public class VehicleEntity implements SuperEntity {
     private Double fuelType;
     @Enumerated(EnumType.STRING)
     private Availability status;
+    @OneToMany(mappedBy = "vehicles")
+    private List<StaffVehicle> staffVehicles;
 }
