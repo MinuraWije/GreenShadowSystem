@@ -22,6 +22,6 @@ public class VehicleEntity implements SuperEntity {
     private Double fuelType;
     @Enumerated(EnumType.STRING)
     private Availability status;
-    @OneToMany(mappedBy = "vehicles")
+    @OneToMany(mappedBy = "vehicle")
     private List<StaffVehicle> staffVehicles;
 }
