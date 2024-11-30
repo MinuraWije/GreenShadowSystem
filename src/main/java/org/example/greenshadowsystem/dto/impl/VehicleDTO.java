@@ -15,7 +15,7 @@ public class VehicleDTO implements VehicleStatus {
     private String vehicleCode;
     private String licensePlateNum;
     private String category;
-    private Double fuelType;
+    private String fuelType;
     @Enumerated(EnumType.STRING)
     private Availability status;
 }
