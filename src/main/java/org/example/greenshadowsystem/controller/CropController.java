@@ -30,7 +30,8 @@ public class CropController {
             @RequestPart("cropScientificName") String cropScientificName,
             @RequestPart("category") String category,
             @RequestPart("img") MultipartFile img,
-            @RequestPart("season") String season
+            @RequestPart("season") String season,
+            @RequestPart("fieldCode") String fieldCode
 
     ){
         String base64Pic1 =";";
@@ -49,6 +50,7 @@ public class CropController {
             buildCropDTO.setCategory(category);
             buildCropDTO.setImg(base64Pic1);
             buildCropDTO.setSeason(season);
+            buildCropDTO.setFieldCode(fieldCode);
             cropService.saveCrop(buildCropDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistException e){
@@ -90,13 +92,14 @@ public class CropController {
     }
 
     @PutMapping(value = "/{cropCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public void updateCrop(CropDTO cropDTO,
+    public void updateCrop(
                             @RequestPart("cropName") String cropName,
                             @RequestPart("cropScientificName") String cropScientificName,
                             @RequestPart("category") String category,
                             @RequestPart("img") MultipartFile img,
                             @RequestPart("season") String season,
-                            @PathVariable ("cropCode") String cropId)
+                            @PathVariable ("cropCode") String cropId,
+                            @RequestPart ("fieldCode") String fieldCode)
     {
         String base64Pic1 =";";
         //profilePic --> Base64
@@ -116,6 +119,7 @@ public class CropController {
         buildCropDTO.setCategory(category);
         buildCropDTO.setImg(base64Pic1);
         buildCropDTO.setSeason(season);
+        buildCropDTO.setFieldCode(fieldCode);
         cropService.updateCrop(cropId,buildCropDTO);
 
     }
