@@ -18,9 +18,9 @@ public class FieldEntity implements SuperEntity {
     @Id
     private String fieldCode;
     private String fieldName;
-    @Column(columnDefinition = "POINT")
-    private Point location;
-    private Double size;
+    //@Column(columnDefinition = "POINT")
+    private String location;
+    private String size;
     @Column(columnDefinition = "LONGTEXT")
     private String img1;
     @Column(columnDefinition = "LONGTEXT")
