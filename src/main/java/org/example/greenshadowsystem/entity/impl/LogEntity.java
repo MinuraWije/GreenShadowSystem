@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.greenshadowsystem.entity.SuperEntity;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class LogEntity implements SuperEntity {
     @Id
     private String logCode;
     private String logDetails;
-    private Date logDate;
+    private String logDate;
     @Column(columnDefinition = "LONGTEXT")
     private String observedImg;
     @OneToMany(mappedBy = "log")

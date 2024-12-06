@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.greenshadowsystem.dto.LogStatus;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
 public class LogDTO implements LogStatus {
     private String logCode;
     private String logDetails;
-    private Date logDate;
+    private String logDate;
     private String observedImg;
     private List<CropLogDTO> cropLogs;
     private List<FieldLogDTO> fieldLogs;
