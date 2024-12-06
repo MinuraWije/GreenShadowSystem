@@ -90,7 +90,7 @@ public class LogController {
     }
 
     @PutMapping(value = "/{logCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public void updateLog(LogDTO logDTO,
+    public void updateLog(
                            @RequestPart("logDetails") String logDetails,
                            @RequestPart("logDate") String logDate,
                            @RequestPart("observedImg") MultipartFile observedImg,
