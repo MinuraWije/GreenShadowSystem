@@ -14,26 +14,29 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.data.geo.Point;
 
 
 import java.io.IOException;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/v1/field")
 public class FieldController {
     @Autowired
     private FieldService fieldService;
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> saveField(
             @RequestPart("fieldName") String fieldName,
-            @RequestPart("location") Point location,
-            @RequestPart("size") Double size,
+            /*@RequestPart("longitude") double longitude,
+            @RequestPart("latitude") double latitude,*/
+            @RequestPart("location") String location,
+            @RequestPart("size") String size,
             @RequestPart("img1") MultipartFile img1,
             @RequestPart("img2") MultipartFile img2
 
     ){
+        System.out.println("sdsd");
         String base64Pic1 =";";
         String base64Pic2 =";";
         //profilePic --> Base64
@@ -50,6 +53,7 @@ public class FieldController {
             buildFieldDTO.setFieldCode(fieldId);
             buildFieldDTO.setFieldName(fieldName);
             buildFieldDTO.setLocation(location);
+            //buildFieldDTO.setLocation(new Point(longitude, latitude));
             buildFieldDTO.setSize(size);
             buildFieldDTO.setImg1(base64Pic1);
             buildFieldDTO.setImg2(base64Pic2);
@@ -71,7 +75,7 @@ public class FieldController {
         return fieldService.getField(fieldId);
     }
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping(value = "{fieldCode}")
+    @DeleteMapping(value = "/{fieldCode}")
     public ResponseEntity<Void> deleteField(@PathVariable ("fieldCode") String fieldId){
         try{
             if(!RegexProcess.fieldIdMatcher(fieldId)){
@@ -93,11 +97,11 @@ public class FieldController {
         return fieldService.getAllField();
     }
 
-    @PutMapping(value = "{fieldCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/{fieldCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public void updateField(FieldDTO fieldDTO,
                            @RequestPart("fieldName") String fieldName,
-                           @RequestPart("location") Point location,
-                           @RequestPart("size") Double size,
+                           @RequestPart("location") String location,
+                           @RequestPart("size") String size,
                            @RequestPart("img1") MultipartFile img1,
                            @RequestPart("img2") MultipartFile img2,
                            @PathVariable ("fieldCode") String fieldId)

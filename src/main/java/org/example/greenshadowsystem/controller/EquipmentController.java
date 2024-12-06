@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:63342", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping("api/v1/equipment")
 public class EquipmentController {
@@ -38,10 +39,11 @@ public class EquipmentController {
         }
         return equipmentService.getEquipment(equipmentId);
     }
+    @GetMapping
     public List<EquipmentDTO> getAllEquipment(){
-        return null;
+        return equipmentService.getAllEquipment();
     }
-    @DeleteMapping(value = "{equipmentId}")
+    @DeleteMapping(value = "/{equipmentId}")
     public ResponseEntity<Void> deleteEquipment(@PathVariable ("equipmentId") String equipmentId){
         try{
             if(!RegexProcess.equipmentIdMatcher(equipmentId)){
@@ -56,7 +58,7 @@ public class EquipmentController {
         }
 
     }
-    @PutMapping(value = "{equipmentId}")
+    @PutMapping(value = "/{equipmentId}")
     public ResponseEntity<Void> updateEquipment(@PathVariable ("equipmentId") String equipmentId, @RequestBody EquipmentDTO updatedEquipmentDTO){
         //validations
         try {

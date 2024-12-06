@@ -18,12 +18,13 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/v1/crop")
 public class CropController {
     @Autowired
     private CropService cropService;
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> saveCrop(
             @RequestPart("cropName") String cropName,
             @RequestPart("cropScientificName") String cropScientificName,
@@ -66,7 +67,7 @@ public class CropController {
         return cropService.getCrop(cropId);
     }
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping(value = "{cropCode}")
+    @DeleteMapping(value = "/{cropCode}")
     public ResponseEntity<Void> deleteCrop(@PathVariable ("cropCode") String cropId){
         try{
             if(!RegexProcess.cropIdMatcher(cropId)){
@@ -88,7 +89,7 @@ public class CropController {
         return cropService.getAllCrop();
     }
 
-    @PutMapping(value = "{cropCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/{cropCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public void updateCrop(CropDTO cropDTO,
                             @RequestPart("cropName") String cropName,
                             @RequestPart("cropScientificName") String cropScientificName,

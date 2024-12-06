@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/v1/vehicles")
+
 public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
@@ -39,10 +41,11 @@ public class VehicleController {
         }
         return vehicleService.getVehicle(vehicleId);
     }
+    @GetMapping
     public List<VehicleDTO> getAllVehicles(){
-        return null;
+        return vehicleService.getAllVehicles();
     }
-    @DeleteMapping(value = "{vehicleCode}")
+    @DeleteMapping(value = "/{vehicleCode}")
     public ResponseEntity<Void> deleteVehicle(@PathVariable ("vehicleCode") String vehicleId){
         try{
             if(!RegexProcess.vehicleIdMatcher(vehicleId)){
@@ -57,7 +60,7 @@ public class VehicleController {
         }
 
     }
-    @PutMapping(value = "{vehicleCode}")
+    @PutMapping(value = "/{vehicleCode}")
     public ResponseEntity<Void> updateVehicle(@PathVariable ("vehicleCode") String vehicleId,@RequestBody VehicleDTO updatedVehicleDTO){
         //validations
         try {

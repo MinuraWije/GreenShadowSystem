@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/v1/staff")
 public class StaffController {
@@ -38,10 +39,11 @@ public class StaffController {
         }
         return staffService.getStaff(staffId);
     }
+    @GetMapping
     public List<StaffDTO> getAllStaff(){
-        return null;
+        return staffService.getAllStaff();
     }
-    @DeleteMapping(value = "{staffId}")
+    @DeleteMapping(value = "/{staffId}")
     public ResponseEntity<Void> deleteStaff(@PathVariable ("staffId") String staffId){
         try{
             if(!RegexProcess.staffIdMatcher(staffId)){
@@ -56,7 +58,7 @@ public class StaffController {
         }
 
     }
-    @PutMapping(value = "{staffId}")
+    @PutMapping(value = "/{staffId}")
     public ResponseEntity<Void> updateStaff(@PathVariable ("staffId") String staffId,@RequestBody StaffDTO updatedStaffDTO){
         //validations
         try {

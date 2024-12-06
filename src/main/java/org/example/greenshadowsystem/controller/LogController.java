@@ -9,6 +9,7 @@ import org.example.greenshadowsystem.service.LogService;
 import org.example.greenshadowsystem.util.AppUtil;
 import org.example.greenshadowsystem.util.RegexProcess;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,21 +17,24 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/v1/log")
 public class LogController {
     @Autowired
     private LogService logService;
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> saveLog(
-            @RequestPart("fieldName") String logDetails,
-            @RequestPart("location") Date logDate,
-            @RequestPart("size") MultipartFile observedImg
+            @RequestPart("logDetails") String logDetails,
+            @RequestPart("logDate")  String logDate,        //@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+            @RequestPart("observedImg") MultipartFile observedImg
 
     ){
+        //System.out.println("File: " + observedImg.getOriginalFilename());
         String base64Pic1 =";";
         //profilePic --> Base64
 
@@ -63,7 +67,7 @@ public class LogController {
         return logService.getLog(logId);
     }
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping(value = "{logCode}")
+    @DeleteMapping(value = "/{logCode}")
     public ResponseEntity<Void> deleteLog(@PathVariable ("logCode") String logId){
         try{
             if(!RegexProcess.logIdMatcher(logId)){
@@ -85,10 +89,10 @@ public class LogController {
         return logService.getAllLog();
     }
 
-    @PutMapping(value = "{logCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/{logCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public void updateLog(LogDTO logDTO,
                            @RequestPart("logDetails") String logDetails,
-                           @RequestPart("logDate") Date logDate,
+                           @RequestPart("logDate") String logDate,
                            @RequestPart("observedImg") MultipartFile observedImg,
                            @PathVariable ("logCode") String logId)
     {
