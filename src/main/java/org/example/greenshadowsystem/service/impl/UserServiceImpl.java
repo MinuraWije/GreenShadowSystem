@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
             UserEntity selectedUser = userDao.getReferenceById(userId);
             return mapping.touserDTO(selectedUser);
         }else{
-            return new SelectedUserAndNoteErrorStatus(2, "User with id "+ userId + "not found.");
+            return new SelectedCustomErrorStatus(2, "User with id "+ userId + "not found.");
         }
     }
 
@@ -64,11 +64,8 @@ public class UserServiceImpl implements UserService {
     public void updateUser(String userID, UserDTO userDTO) {
         Optional<UserEntity> tmpUser = userDao.findById(userID);
         if(tmpUser.isPresent()){
-            tmpUser.get().setFirstName(userDTO.getFirstName());
-            tmpUser.get().setLastName(userDTO.getLastName());
             tmpUser.get().setEmail(userDTO.getEmail());
             tmpUser.get().setPassword(userDTO.getPassword());
-            tmpUser.get().setProfilePic(userDTO.getProfilePic());
         }
     }
 
